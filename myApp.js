@@ -17,7 +17,11 @@ app.get('/', (request, response) => {
 /** 4)Serve static assets */
 app.use("/public", express.static(__dirname + '/public'))
 
-
+/** 5)Serve JSON on a Specific Route */
+let message = {message: "Hello json"};
+app.get('/json', (request, response) => {
+	response.json(message)
+})
 
 
 
