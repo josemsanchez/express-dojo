@@ -1,3 +1,4 @@
+const { request, response } = require('express');
 var express = require('express');
 require('dotenv').config();
 var app = express();
@@ -39,6 +40,13 @@ app.get('/json', (request, response) => {
     }
 })
 
+/** 8)Chaining middleware. A Time server */
+app.get('/now', (request, response, next) => {
+    request.time = new Date().toString()
+    next()
+}, (request, response) => {
+    response.json({'time': request.time })
+})
 
 
 
