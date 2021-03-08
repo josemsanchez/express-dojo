@@ -2,12 +2,16 @@ const { request, response } = require('express');
 var express = require('express');
 require('dotenv').config();
 var app = express();
+var bodyParser = require('body-parser')
 
 /** --> 7)Mount the logger middleware */
 app.use( (request, response, next) => {
     console.log( request.method + ' ' + request.path + ' - ' + request.ip)
     next()
 })
+
+/** --> 11)Mount the body-parser mddleware here */
+app.use(bodyParser.urlencoded({ extended: false }))
 
 /** 1)Meet the Node console */
 console.log("Hello World");
