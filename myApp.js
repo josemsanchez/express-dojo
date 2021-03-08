@@ -64,7 +64,15 @@ app.get("/name", (request, response) => {
     response.json({ name: string });
   });
 
-
+/** 12)Get data from POST */
+app.post(
+   "/name",
+    bodyParser.urlencoded({ extended: false }),
+    (request, response) => {
+      let string = request.body.first + " " + request.body.last;
+      response.json({ name: string });
+    }
+)
 
 
  module.exports = app;
