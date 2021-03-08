@@ -2,6 +2,12 @@ var express = require('express');
 require('dotenv').config();
 var app = express();
 
+/** --> 7)Mount the logger middleware */
+app.use( (request, response, next) => {
+    console.log( request.method + ' ' + request.path + ' - ' + request.ip)
+    next()
+})
+
 /** 1)Meet the Node console */
 console.log("Hello World");
 
