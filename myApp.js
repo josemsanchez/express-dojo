@@ -53,8 +53,12 @@ app.get('/:word/echo', (request, response) => {
     response.json({echo: request.params.word})
 })
 
-
-
+/** 10)Get input from client - Query parameters */
+// /name?first=<firstName>&last=<lastName>
+app.get("/name", (request, response) => {
+    let string = request.query.first + " " + request.query.last;
+    response.json({ name: string });
+  });
 
 
 
