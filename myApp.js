@@ -48,8 +48,10 @@ app.get('/now', (request, response, next) => {
     response.json({'time': request.time })
 })
 
-
-
+/** 9)Get input from client - Route parameters */
+app.get('/:word/echo', (request, response) => {
+    response.json({echo: request.params.word})
+})
 
 
 
